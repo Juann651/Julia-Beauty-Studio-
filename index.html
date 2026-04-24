@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Julia Beauty Studio | Salão de Beleza em Vila Velha - ES</title>
+  <meta name="description"
+    content="Julia Beauty Studio — salão de beleza no Vale Encantado, Vila Velha. Cabelo, pele, sobrancelhas, cílios, estética, maquiagem e agendamento online." />
+  <meta name="keywords"
+    content="Salão de beleza no vale encantado, melhor Salão de beleza em Vila Velha, Julia Beauty Studio, escova, progressiva, maquiagem, design de sobrancelha, extensão de cílios" />
+  <meta name="theme-color" content="#d94f86" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="grain"></div>
+  <nav class="topbar">
+    <a href="#inicio" class="brand"><span class="brand-mark">J</span><span>Julia Beauty<small>Studio</small></span></a>
+    <div class="nav">
+      <a href="#servicos">Serviços</a><a href="#sobre">Sobre</a><a href="#depoimentos">Avaliações</a><a
+        href="#contato">Contato</a><a href="#agendar" class="book">Agendar</a>
+    </div>
+    <button class="menu" id="menu">☰</button>
+  </nav>
+  <div class="mobile" id="mobile"><a href="#servicos">Serviços</a><a href="#sobre">Sobre</a><a
+      href="#depoimentos">Avaliações</a><a href="#contato">Contato</a><a href="#agendar">Agendar serviço</a></div>
+  <header class="hero" id="inicio">
+    <div class="hero-shell">
+      <div>
+        <span class="eyebrow">Salão de beleza · Vila Velha</span>
+        <h1>Beleza com presença<span>e cuidado real.</span></h1>
+        <p>No Julia Beauty Studio, cabelo, pele, cílios, sobrancelhas e estética se encontram em uma experiência
+          moderna, acolhedora e feita para você sair se sentindo impecável.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#agendar">Agende um serviço</a><a
+            class="btn btn-soft" href="#servicos">Conhecer serviços</a></div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-photo"></div>
+        <div class="float-panel"><strong>5.0 · 51 avaliações</strong>
+          <div class="rating"><span>Atendimento pontual e espaço top</span><span class="stars">★★★★★</span></div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section class="services" id="servicos">
+    <div class="wrap">
+      <div class="section-head">
+        <div><span class="tag">menu de beleza</span>
+          <h2 class="title">Serviços para transformar seu dia</h2>
+        </div>
+        <p class="lead">Escolha seu procedimento e agende online em poucos cliques. Trabalhamos com cabelo, estética
+          facial, sobrancelhas, cílios, corpo, depilação e maquiagem.</p>
+      </div>
+      <div class="service-row" id="servicesCards"></div>
+    </div>
+  </section>
+  <section class="booking" id="agendar">
+    <div class="wrap">
+      <div class="section-head">
+        <div><span class="tag">agenda online</span>
+          <h2 class="title">Reserve seu horário</h2>
+        </div>
+        <p class="lead">O agendamento é salvo no banco local do navegador. A cliente recebe um código para consultar
+          depois.</p>
+      </div>
+      <div class="booking-box">
+        <aside class="side">
+          <div>
+            <h2>Agendamento em 4 passos</h2>
+            <div class="steps">
+              <div class="step active" id="si1"><b>1</b><span>Serviço</span></div>
+              <div class="step" id="si2"><b>2</b><span>Data e hora</span></div>
+              <div class="step" id="si3"><b>3</b><span>Dados</span></div>
+              <div class="step" id="si4"><b>4</b><span>Confirmação</span></div>
+            </div>
+          </div>
+        </aside>
+        <main>
+          <div class="panel active" id="p1">
+            <div class="pick-grid" id="svcGrid"></div>
+            <div class="navstep"><span></span><button class="btn btn-primary" id="next1" onclick="goStep(2)"
+                disabled>Continuar</button></div>
+          </div>
+          <div class="panel" id="p2">
+            <div class="calarea">
+              <div class="calendar">
+                <div class="cal-top"><button class="round" id="prevM">‹</button><strong id="calTitle"></strong><button
+                    class="round" id="nextM">›</button></div>
+                <div class="cal-grid" id="calGrid"></div>
+              </div>
+              <div class="slots">
+                <h3 id="slotsTitle">Escolha uma data</h3>
+                <div class="slot-grid" id="slotsGrid">
+                  <div class="empty-msg">Selecione uma data no calendário.</div>
+                </div>
+              </div>
+            </div>
+            <div class="navstep"><button class="btn btn-soft" onclick="goStep(1)">Voltar</button><button
+                class="btn btn-primary" id="next2" onclick="goStep(3)" disabled>Continuar</button></div>
+          </div>
+          <div class="panel" id="p3">
+            <div class="formcard">
+              <div class="sum" id="summary"></div>
+              <div class="fields">
+                <div class="two">
+                  <div class="fg"><label>Nome completo *</label><input id="cName" placeholder="Seu nome" /></div>
+                  <div class="fg"><label>Telefone *</label><input id="cPhone" placeholder="(27) 9 0000-0000" /></div>
+                </div>
+                <div class="fg"><label>E-mail</label><input id="cEmail" type="email" placeholder="seu@email.com" />
+                </div>
+                <div class="fg"><label>Observações</label><textarea id="cNotes"
+                    placeholder="Algum detalhe importante?"></textarea></div>
+              </div>
+            </div>
+            <div class="navstep"><button class="btn btn-soft" onclick="goStep(2)">Voltar</button><button
+                class="btn btn-primary" onclick="confirmBooking()">Confirmar agendamento</button></div>
+          </div>
+          <div class="panel" id="p4">
+            <div class="donebox">
+              <div class="big">✨</div>
+              <h2 class="title" style="font-size:2.6rem">Horário reservado</h2>
+              <p class="lead" style="margin:auto">Seu agendamento foi salvo. Guarde o código para consultar depois.</p>
+              <div class="conf" id="confDetails"></div>
+              <div class="hero-actions" style="justify-content:center"><button class="btn btn-soft"
+                  onclick="resetFlow()">Novo agendamento</button><a class="btn btn-primary" target="_blank"
+                  href="https://wa.me/5527999999999?text=Olá! Vim pelo site Julia Beauty Studio.">WhatsApp</a></div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+  <section class="about" id="sobre">
+    <div class="wrap about-grid">
+      <div><span class="tag">sobre nós</span>
+        <h2 class="title">Um studio completo para cuidar da sua beleza</h2>
+        <p class="lead">O Julia Beauty Studio nasceu para oferecer uma experiência completa em Vila Velha: atendimento
+          humanizado, ambiente limpo, profissionais cuidadosas e procedimentos pensados para realçar sua melhor versão.
+        </p>
+        <div class="feature-list">
+          <div class="feature">Atendimento com horário marcado</div>
+          <div class="feature">Ambiente limpo e confortável</div>
+          <div class="feature">Serviços de cabelo e estética</div>
+          <div class="feature">Agendamento direto pelo site</div>
+        </div>
+      </div>
+      <div class="about-img"></div>
+    </div>
+  </section>
+  <section class="testimonials" id="depoimentos">
+    <div class="wrap">
+      <div class="section-head">
+        <div><span class="tag">prova social</span>
+          <h2 class="title">Clientes que indicam</h2>
+        </div>
+        <p class="lead"><strong>5.0 estrelas</strong> em 51 avaliações. Atendimento, pontualidade e cuidado são os
+          pontos mais elogiados.</p>
+      </div>
+      <div class="review-grid">
+        <article class="review">
+          <div>
+            <div class="stars">★★★★★</div>
+            <p>“Muito boa, pessoal muito atencioso e gente boa. Indico com certeza!!”</p>
+          </div>
+          <div class="person"><span class="avatar">A</span><span>Ana Paula · Google</span></div>
+        </article>
+        <article class="review">
+          <div>
+            <div class="stars">★★★★★</div>
+            <p>“Atendimento agendado e o local é top, recomendo.”</p>
+          </div>
+          <div class="person"><span class="avatar">M</span><span>Marina R. · Google</span></div>
+        </article>
+        <article class="review">
+          <div>
+            <div class="stars">★★★★★</div>
+            <p>“Excelente atendimento, muito carinho nos detalhes e resultado perfeito.”</p>
+          </div>
+          <div class="person"><span class="avatar">C</span><span>Camila S. · Google</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="contact" id="contato">
+    <div class="wrap contact-grid">
+      <div class="contact-card"><span class="tag">contato</span>
+        <h2 class="title" style="font-size:3rem">Venha se cuidar</h2>
+        <div class="contact-item"><b>📍</b>
+          <div><strong>Endereço</strong><br>Vale Encantado, Vila Velha - Espírito Santo</div>
+        </div>
+        <div class="contact-item"><b>📱</b>
+          <div><strong>Telefone / WhatsApp</strong><br><a href="https://wa.me/5527999999999" target="_blank">(27) 9
+              9999-9999</a></div>
+        </div>
+        <div class="contact-item"><b>✉️</b>
+          <div><strong>E-mail</strong><br><a
+              href="mailto:juliabeautystudio@gmail.com__">juliabeautystudio@gmail.com__</a></div>
+        </div>
+        <div class="contact-item"><b>🕘</b>
+          <div><strong>Horário</strong><br>Seg a Sex: 9h às 19h · Sábado: 9h às 17h</div>
+        </div>
+        <div class="contact-form">
+          <div class="fg">
+            <label>Verificar agendamento</label>
+            <input id="lookupInput" placeholder="Código (ex: JB-1234) ou seu nome" oninput="lookupBooking()" />
+          </div>
+          <div id="lookupResult"></div>
+        </div>
+      </div><iframe class="map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119069.56897959658!2d-40.41178!3d-20.3297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb817e0cb4b1ca5%3A0x1a4a2bd8bc0f2a2a!2sVila%20Velha%2C%20ES!5e0!3m2!1spt-BR!2sbr!4v1714000000000!5m2!1spt-BR!2sbr"
+        loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div>
+          <h3>Julia Beauty Studio</h3>
+          <p>Salão de beleza no Vale Encantado, Vila Velha. Cabelo, pele, cílios, sobrancelhas, estética, depilação e
+            maquiagem.</p>
+          <div class="social"><a href="#">IG</a><a href="#">TK</a><a href="#">FB</a></div>
+        </div>
+        <div>
+          <h4>Links</h4><a href="#servicos">Serviços</a><a href="#agendar">Agendar</a><a href="#sobre">Sobre</a><a
+            href="#contato">Contato</a>
+        </div>
+        <div>
+          <h4>Serviços</h4><a href="#agendar">Cabelo</a><a href="#agendar">Sobrancelhas</a><a
+            href="#agendar">Cílios</a><a href="#agendar">Estética</a>
+        </div>
+      </div>
+      <div class="copy"><span>© 2026 Julia Beauty Studio. Todos os direitos reservados.</span><a href="#inicio">Voltar
+          ao topo ↑</a></div>
+    </div>
+  </footer>
+  <a class="wa" href="https://wa.me/5527999999999" target="_blank"><svg xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24" fill="white" width="30" height="30">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg></a><button class="admin-fab" onclick="openAdmin()">⚙</button>
+  <div class="modal" id="adminModal" onclick="if(event.target.id==='adminModal')closeAdmin()">
+    <div class="adm">
+      <div class="adm-head"><strong>Painel de Agendamentos</strong><button class="round"
+          onclick="closeAdmin()">×</button></div>
+      <div class="adm-body">
+        <div class="adm-login" id="admLogin">
+          <div class="fg"><label>Senha administrativa</label><input id="admPw" type="password"
+              placeholder="Digite a senha"></div><button class="btn btn-primary" style="width:100%;margin-top:12px"
+            onclick="checkAdmin()">Entrar</button>
+          <p id="admErr" style="display:none;color:#b91c1c;margin-top:12px">Senha incorreta.</p>
+        </div>
+        <div id="admPanel" style="display:none">
+          <div class="fg"><label>Buscar por nome ou código</label><input id="admSearch" oninput="renderAdmin()"
+              placeholder="Ex: JB-1234"></div>
+          <div class="filters"><button class="active" onclick="setFilter('all',this)">Todos</button><button
+              onclick="setFilter('pending',this)">Pendentes</button><button
+              onclick="setFilter('confirmed',this)">Confirmados</button><button
+              onclick="setFilter('done',this)">Concluídos</button><button
+              onclick="setFilter('cancelled',this)">Cancelados</button></div>
+          <div id="admList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
