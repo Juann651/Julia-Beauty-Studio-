@@ -931,7 +931,7 @@ section {
 .about-img {
     border-radius: 42px;
     min-height: 520px;
-    background: url('imagens/salao.avif') center/cover;
+    background: url('imagens/CabeloCapa.jpg') center/cover;
     box-shadow: 0 24px 80px rgba(0, 0, 0, .3)
 }
 
